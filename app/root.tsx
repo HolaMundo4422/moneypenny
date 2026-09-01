@@ -15,6 +15,7 @@ import type { Route } from './+types/root';
 import './app.css';
 import { Toaster } from '~/components/ui/sonner';
 import { isAuthenticated } from '~/lib/auth.server';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -119,6 +120,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
         {children}
         <Toaster />
+        <SpeedInsights />
         <ScrollRestoration />
         <Scripts />
       </body>
