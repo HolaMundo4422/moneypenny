@@ -102,7 +102,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="apple-mobile-web-app-title" content="DuitLog" />
+        <meta name="apple-mobile-web-app-title" content="Moneypenny" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <Meta />

@@ -2,7 +2,7 @@ import { createCookieSessionStorage, data, redirect } from 'react-router';
 
 const sessionStorage = createCookieSessionStorage({
   cookie: {
-    name: 'duitlog_session',
+    name: 'moneypenny_session',
     httpOnly: true,
     maxAge: 60 * 60 * 24 * 30, // 30 days
     path: '/',

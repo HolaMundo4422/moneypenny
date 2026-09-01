@@ -137,7 +137,7 @@ export default function History() {
     if (isOffline || entries.length === 0) return;
     try {
       localStorage.setItem(
-        `duitlog-history-${activeMonth}`,
+        `moneypenny-history-${activeMonth}`,
         JSON.stringify(entries),
       );
     } catch {
@@ -227,7 +227,7 @@ export default function History() {
       )}
 
       <div className="grid grid-cols-4 gap-1 px-4 pb-2">
-        {['All', 'Danny', 'Dewi', 'Together'].map((s) => (
+        {['All', 'Ariq', 'Najwa', 'Together'].map((s) => (
           <button
             key={s}
             onClick={() => dispatch({ type: 'SET_SOURCE_FILTER', filter: s })}

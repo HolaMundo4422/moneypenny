@@ -10,9 +10,9 @@ export const CATEGORIES = [
   'Other'
 ] as const;
 
-export const METHODS = ['Cash', 'BCA Debit', 'QRIS'] as const;
+export const METHODS = ['Cash', 'Debit', 'QRIS'] as const;
 
-export const SOURCES = ['Danny', 'Dewi', 'Together'] as const;
+export const SOURCES = ['Ariq', 'Najwa', 'Together'] as const;
 
 export type Category = (typeof CATEGORIES)[number];
 export type Method = (typeof METHODS)[number];

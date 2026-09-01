@@ -1,5 +1,5 @@
-const STATIC_CACHE = 'duitlog-static-v1';
-const OFFLINE_CACHE = 'duitlog-offline-v1';
+const STATIC_CACHE = 'moneypenny-static-v2';
+const OFFLINE_CACHE = 'moneypenny-offline-v2';
 const VALID_CACHES = [STATIC_CACHE, OFFLINE_CACHE];
 
 const OFFLINE_URL = '/offline';
@@ -58,7 +58,7 @@ async function syncFromSW() {
   // Acquire a Web Lock so the page's fallback auto-sync and this SW handler
   // cannot run at the same time and double-submit the same queued entry.
   if ('locks' in navigator) {
-    return navigator.locks.request('duitlog-sync', () =>
+    return navigator.locks.request('moneypenny-sync', () =>
       _doSyncFromSW(),
     );
   }
@@ -69,7 +69,7 @@ async function _doSyncFromSW() {
   let db;
   try {
     db = await new Promise((resolve, reject) => {
-      const request = indexedDB.open('duitlog-offline', 1);
+      const request = indexedDB.open('moneypenny-offline', 1);
       request.onupgradeneeded = () => {
         const database = request.result;
         if (!database.objectStoreNames.contains('pending-expenses')) {
