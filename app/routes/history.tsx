@@ -18,6 +18,26 @@ import { getPendingCount } from '~/lib/offline-queue';
 import { syncPendingExpenses } from '~/lib/sync';
 import { toast } from 'sonner';
 
+function formatSheetDate(value: unknown): string {
+  if (value === null || value === undefined || value === '') {
+    return '';
+  }
+
+  if (typeof value === 'number') {
+    const date = new Date(
+      Date.UTC(1899, 11, 30) + value * 24 * 60 * 60 * 1000,
+    );
+
+    return new Intl.DateTimeFormat('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(date);
+  }
+
+  return String(value);
+}
+
 export async function loader({ request }: Route.LoaderArgs) {
   await requireAuth(request);
 
@@ -49,7 +69,7 @@ export async function loader({ request }: Route.LoaderArgs) {
       category: row[2] ?? '',
       amount: Number(row[3]) || 0,
       method: row[4] ?? '',
-      date: row[5] ?? '',
+      date: formatSheetDate(row[5]),
       source: row[6] ?? '',
     }));
     return data({ entries, activeMonth, months });
