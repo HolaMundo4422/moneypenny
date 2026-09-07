@@ -76,8 +76,7 @@ export async function getExpensesByMonth(
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
       range: `'${month}'!A:G`,
-      valueRenderOption: 'UNFORMATTED_VALUE',
-      dateTimeRenderOption: 'FORMATTED_STRING',
+      valueRenderOption: 'FORMATTED_VALUE',
     });
     const values = res.data.values ?? [];
     const rows = values.slice(1);
